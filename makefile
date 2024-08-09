@@ -20,7 +20,7 @@ default: $(TARGET)
 $(OBJDIR)/%.o: %.cpp
 	@[ -d $(OBJDIR) ] || mkdir -p $(OBJDIR)
 	@[ -d $(dir $@) ] || mkdir -p $(dir $@)
-	$(CXX) -g -O0 $(CXXFLAGS) $(INCD) -o $@ -c $< -std=c++20
+	$(CXX) -g -Wall -O0 $(CXXFLAGS) $(INCD) -o $@ -c $< -std=c++20
 
 $(TARGET): $(OBJS)
 	@[ -d $(dir $(TARGET)) ] || mkdir -p $(dir $(TARGET))

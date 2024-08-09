@@ -20,3 +20,11 @@ AtCoder C++用解答テンプレート
 
 [A. Frog 1](https://atcoder.jp/contests/dp/submissions/54679358)
 [D - ±1 Operation 2](https://atcoder.jp/contests/abc255/submissions/54695859)
+
+## 環境変数類
+
+make用に設定しておく。
+```bash
+export TARGET_DIR=~/.programing_contest
+export ATCODER_HEADER=~/proj/local/ac-library
+```
