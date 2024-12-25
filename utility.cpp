@@ -6,8 +6,24 @@ Int POW(Int base, int x) {
 	return result;
 }
 
+atcoder::modint::set_mod(1e9+7);
+using mint = atcoder::modint998244353;
 atcoder::modint POW(atcoder::modint base, int x) {
 	mint r = 1; while (x) { if (x & 1) r *= base; base *= base; x >>= 1; } return r;
+}
+
+atcoder::modint nCx(int N, int x) {
+    // nCx
+	atcoder::modint res = 1;
+	for (int i = 0; i < x; i++) { res *= N - i; }
+	for (int i = 1; i < x + 1; i++) { res /= i; }
+    return res;
+}
+
+atcoder::modint P(int N) {
+	atcoder::modint res = 1;
+	for (int i = 0; i < N; i++) { res *= N - i; }
+    return res;
 }
 
 Int gcd(Int x, Int y) {
@@ -19,33 +35,27 @@ Int gcd(Int x, Int y) {
 // デバッグ表示用
 template<typename T> std::ostream& operator<<(std::ostream& os, const std::vector<T>& obj) {
 	for (auto & val : obj) {os << val << ' ';}
-	os << std::endl;
 	return os;
 }
+
+template<typename T, typename U> std::ostream& operator<<(std::ostream& os, const std::vector<std::pair<T,U>>& obj) {
+	for (auto & [t,u] : obj) {os << t << ',' << u << ' ';}
+	return os;
+}
+
+
 template<typename T> void p(const T &V) {
-	for (auto &v : V) {
-		std::cerr << v << " ";
-	}
+	for (auto &v : V) { std::cerr << v << " "; }
 	std::cerr<< std::endl;
 }
-
-template<typename T> std::ostream& operator<<(std::ostream& os, const std::pair<T,T>& obj) { os << obj.first << '/' << obj.second; return os; }
-
-atcoder::modint nCx(int N, int x) {
-    // nCx
-	atcoder::modint res = 1;
-	for (int i = 0; i < x; i++) { res *= N - i; }
-	for (int i = 1; i < x + 1; i++) { res /= i; }
-    return res;
-}
-
-// ↖︎↑↗︎←→↙︎↓↘︎
-std::vector<int> dh = {-1, -1, -1, 0, 0, 1, 1, 1};
-std::vector<int> dw = {-1,  0,  1,-1, 1,-1, 0, 1};
 
 // ↑←→↓
 std::vector<int> dh = {-1, 0, 0, 1};
 std::vector<int> dw = {0, -1, 1, 0};
+
+// ↑←→↓↖︎↗︎↙︎↘︎
+std::vector<int> dh = {-1, 0, 0, 1, -1, -1,  1, 1};
+std::vector<int> dw = { 0,-1, 1, 0, -1,  1, -1, 1};
 
 template<typename T> 
 std::vector<T> rotate(const std::vector<T> &obj) {

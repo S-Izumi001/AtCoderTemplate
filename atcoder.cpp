@@ -8,6 +8,7 @@ template<typename T> std::vector<T> getArray(int N, std::istream &is) { std::vec
 template<typename T> void chmax(T &max, const T &newVal) { max = std::max(max, newVal); }
 template<typename T> void chmin(T &min, const T &newVal) { min = std::min(min, newVal); }
 template<typename T> std::ostream& operator<<(std::ostream& os, const std::vector<T>& obj) { for (auto & val : obj) {os << val << ' ';} os << std::endl; return os; }
+#define s(xxx) std::cerr << #xxx << ":" << xxx << std::endl;
 
 #define handleInput(stream) \
 
