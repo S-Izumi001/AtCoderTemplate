@@ -32,6 +32,11 @@ Int gcd(Int x, Int y) {
 	return gcd(y%x, x);
 }
 
+// 等差数列の和
+Int tousaSum(Int from, Int d, Int n) {
+	return (from * 2 + d * (n - 1)) * n / 2;
+}
+
 // デバッグ表示用
 template<typename T> std::ostream& operator<<(std::ostream& os, const std::vector<T>& obj) {
 	for (auto & val : obj) {os << val << ' ';}
