@@ -50,12 +50,9 @@ run run_test: $(TARGET)
 	$(TARGET)
 
 .PHONY:
-in: clean $(TARGET) check_inputs
+in: clean $(TARGET)
+	@bash systemtest.sh all $(PROJ_NAME)
 
-check_inputs: $(TARGET) 
-	@[ -d out ] || mkdir out
-	@rm -rf out/*
-	@for f in $(INPUTS); do \
-		echo "run $$f"; \
-		$(TARGET) < $$f > out/`basename $$f` ; \
-	done
+short: clean $(TARGET)
+	@bash systemtest.sh short $(PROJ_NAME)
+
